@@ -9,11 +9,11 @@ class Editor extends Field
     protected $view = 'laravel-admin-wangEditor::editor';
 
     protected static $css = [
-        'vendor/laravel-admin-ext/wang-editor/wangEditor-3.0.10/release/wangEditor.css',
+        'vendor/laravel-admin-ext/wang-editor/wangEditor-4.6.13/release/wangEditor.css',
     ];
 
     protected static $js = [
-        'vendor/laravel-admin-ext/wang-editor/wangEditor-3.0.10/release/wangEditor.js',
+        'vendor/laravel-admin-ext/wang-editor/wangEditor-4.6.13/release/wangEditor.js',
     ];
 
     public function render()
@@ -39,11 +39,11 @@ class Editor extends Field
     var E = window.wangEditor
     var editor = new E('#{$this->id}');
     
-    editor.customConfig.uploadImgParams = {_token: '$token'}
+    editor.config.uploadImgParams = {_token: '$token'}
     
-    Object.assign(editor.customConfig, {$config})
+    Object.assign(editor.config, {$config})
     
-    editor.customConfig.onchange = function (html) {
+    editor.config.onchange = function (html) {
         $('#input-$id').val(html);
     }
     editor.create();
